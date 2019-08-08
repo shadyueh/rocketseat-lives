@@ -3,14 +3,19 @@ const axios = require("axios");
 module.exports = {
   async store(req, res) {
     const { username } = req.body;
+    let response = [];
 
-    const response = await axios
-      .get(`https://api.github.com/users/${username}`)
-      .then(response => {
-        console.log(response.data); // ex.: { user: 'Your User'}
-        console.log(response.status); // ex.: 200
-      })
-      .catch(err => console.log(err));
+    try {
+      response = await axios.get(
+        `http://localhost:1111/users?login=${username}`,
+        {
+          proxy: false
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
 
     return res.json(response.data);
   }
