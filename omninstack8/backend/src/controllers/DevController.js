@@ -6,6 +6,12 @@ module.exports = {
     // captura parametro username do corpo da requisição
     const { username } = req.body;
 
+    const userExists = await Dev.findOne({ user: username });
+
+    if (userExists) {
+      return res.json(userExists);
+    }
+
     // acessa a api do github para pesquisar os dados do usuário informado
     const response = await axios.get(
       `http://localhost:1111/users?login=${username}`,
