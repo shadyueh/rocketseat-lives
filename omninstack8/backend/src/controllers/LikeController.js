@@ -12,6 +12,11 @@ module.exports = {
     if (!targetDev) {
       return res.status(400).json({ error: "Dev not exists" });
     }
+
+    if (targetDev.likes.includes(loggedDev._id)) {
+      console.log("DEU MATCH");
+    }
+
     //atualiza registro
     loggedDev.likes.push(targetDev.id);
     //grava no banco
