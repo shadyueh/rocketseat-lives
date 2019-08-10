@@ -26,14 +26,16 @@ module.exports = {
 
     // acessa a api do github para pesquisar os dados do usuário informado
     const response = await axios.get(
-      `http://localhost:1111/users?login=${username}`,
+      `https://api.github.com/users/${username}`,
+      //`http://localhost:1111/users?login=${username}`,
       {
         proxy: false
       }
     );
 
     // deconstrução para pegar apenas os dados desejados da resposta
-    const { name, bio, avatar_url: avatar } = response.data[0];
+    // const { name, bio, avatar_url: avatar } = response.data[0];
+    const { name, bio, avatar_url: avatar } = response.data;
 
     //cria o dev no banco de dados
     const dev = await Dev.create({
