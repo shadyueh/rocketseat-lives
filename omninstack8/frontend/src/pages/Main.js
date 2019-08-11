@@ -42,7 +42,8 @@ export default function Main({ match }){
     return(
         <div className="main-container">
             <img src={logo} alt="TinDev" />
-            <ul>
+            {users.length > 0 ? (
+                <ul>
                 {users.map(user => (
                     <li key={user._id}>
                         <img src={user.avatar} alt={user.name} />
@@ -60,7 +61,10 @@ export default function Main({ match }){
                         </div>
                     </li>
                 ))}
-            </ul>
+                </ul>
+            ) : (
+                <div className="empty">Acabou :(</div>
+            ) }
     </div>
     )
 }
