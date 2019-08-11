@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import './Main.css';
 
 import api from '../services/api';
@@ -45,7 +46,10 @@ export default function Main({ match }){
 
     return(
         <div className="main-container">
-            <img src={logo} alt="TinDev" />
+            <Link to="/">
+                <img src={logo} alt="TinDev" />
+            </Link>
+           
             {users.length > 0 ? (
                 <ul>
                 {users.map(user => (
