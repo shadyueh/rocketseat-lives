@@ -9,13 +9,28 @@
 import React, {Fragment} from 'react';
 import {
   View,
-  Text
+  Text,
+  StyleSheet
 } from 'react-native';
 
 export default function App() {
   return (
-    <View style={{flex:1, backgroundColor:'#7c65c6', justifyContent:'center'}}>
-      <Text>Hello Mobile</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello Mobile</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    backgroundColor: '#7159c1',
+    justifyContent: 'center',
+    alignItems:'center'
+  },
+  text:{
+    fontWeight: 'bold',
+    color: '#FFF',
+    fontSize: 20
+  }
+})
