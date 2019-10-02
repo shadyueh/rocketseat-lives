@@ -2,8 +2,9 @@ const express = require("express");
 
 const app = express();
 
-app.get("/", (req, res) => {
-  return res.json({ message: "Hello Omnistack 9" });
+app.post("/users", (req, res) => {
+  // query params
+  return res.json({ idade: req.query.idade });
 });
 
 app.listen(3333);
