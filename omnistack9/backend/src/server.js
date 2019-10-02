@@ -4,15 +4,12 @@ const app = express();
 
 // req.query = Acessar query params (para filtros)
 // req.params = Acessar route params (edição, delete)
+// req.body = Acessar corpo da requisição(criação, edição)
+
+app.use(express.json());
 
 app.post("/users", (req, res) => {
-  // query params
-  return res.json({ idade: req.query.idade });
-});
-
-app.put("/users/:id", (req, res) => {
-  // route params
-  return res.json({ id: req.params.id });
+  return res.json(req.body);
 });
 
 app.listen(3333);
